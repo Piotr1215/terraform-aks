@@ -1,17 +1,19 @@
 # Prepare Azure resources and setup for cluster creation
 
-1. Run _create-container.sh_ - this will create storage account with container for storing terraform state and initiate terraform
+This guide is based on [Tutorial: Create a Kubernetes cluster with Azure Kubernetes Service using Terraform](https://docs.microsoft.com/en-us/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks)
 
-2. Run _terraform plan -out out.plan_ - this will prepare terraform deployment
+1. Execute script **create-container.sh** - this will create storage account with container for storing terraform state and initiate terraform
 
-3. Run _terraform apply out.plan_ - this will deploy AKS and store terraform state in the container created in step 1
+2. Run **terraform plan -out out.plan** - this will prepare terraform deployment
 
-4. Run _echo "$(terraform output kube_config)" > ./azurek8s_ - this will create azure config for kubectl
+3. Run **terraform apply out.plan** - this will deploy AKS and store terraform state in the container created in step 1
 
-5. Run _export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config:./azurek8s_ to merge newly created config for AKS with default kubeclt config
+4. Run **echo "$(terraform output kube_config)" > ./azurek8s** - this will create azure config for kubectl
 
-6. Run _terraform destroy_ to cleanup all AKS related resources
+5. Run **export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config:./azurek8s** to merge newly created config for AKS with default kubeclt config
 
-7. Run _az group delete -n <resource group name from create-container.sh>_ - remove storage account and terraform state
+6. Run **terraform destroy** to cleanup all AKS related resources
 
-8. Run _rm -Rf .terraform_ - this is needed to reset the state which is gone when removing the storage account and container
+7. Run **az group delete -n \<resource group name from create-container.sh>** - remove storage account and terraform state
+
+8. Run **rm -Rf .terraform** - this is needed to reset the state which is gone when removing the storage account and container
