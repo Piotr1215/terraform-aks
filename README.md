@@ -1,6 +1,14 @@
 # Deploy AKS cluster using terraform and Azure CLI
 
-This guide is based on [Tutorial: Create a Kubernetes cluster with Azure Kubernetes Service using Terraform](https://docs.microsoft.com/en-us/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks)
+This guide is based on [Tutorial: Create a Kubernetes cluster with Azure Kubernetes Service using Terraform](https://docs.microsoft.com/en-us/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks) with a few differences:
+
+* Azure RBAC is enabled
+
+* automated retrieval of storage account key
+
+* cluster config is merged with kubeclt config file instead of replacing it
+
+## Deployment steps
 
 1. Execute script **create-container.sh** - this will create storage account with container for storing terraform state and initiate terraform
 
@@ -16,4 +24,4 @@ This guide is based on [Tutorial: Create a Kubernetes cluster with Azure Kuberne
 
 7. Run **az group delete -n \<resource group name from create-container.sh>** - remove storage account and terraform state
 
-8. Run **rm -Rf .terraform** - this is needed to reset the state which is gone when removing the storage account and container
+8. _Optional_ Run **rm -Rf .terraform** - this is needed to reset the state which is gone when removing the storage account and container
