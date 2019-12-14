@@ -1,4 +1,4 @@
-# Prepare Azure resources and setup for cluster creation
+# Deploy AKS cluster using terraform and Azure CLI
 
 This guide is based on [Tutorial: Create a Kubernetes cluster with Azure Kubernetes Service using Terraform](https://docs.microsoft.com/en-us/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks)
 
