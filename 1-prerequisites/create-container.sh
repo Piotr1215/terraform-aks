@@ -1,7 +1,7 @@
 # Create general purpose V2 storage account
 
-accountName=csstorageforakstest222
-rg=deletemepls
+accountName=csstorageforakstest333
+rg=terraform-storage-rg
 
 az group create --name $rg --location westeurope --output json
 
