@@ -42,8 +42,8 @@ resource "azurerm_kubernetes_cluster" "k8s" {
         }
     }
 
-    agent_pool_profile {
-        name            = "agentpool"
+    default_node_pool {
+        name            = "default"
         count           = var.agent_count
         vm_size         = "Standard_DS1_v2"
         os_type         = "Linux"
@@ -62,7 +62,7 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     addon_profile {
         oms_agent {
         enabled                    = true
-        log_analytics_workspace_id = azurerm_log_analytics_workspace.test.id
+            log_analytics_workspace_id = azurerm_log_analytics_workspace.test.id
         }
     }
 
