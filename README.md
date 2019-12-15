@@ -20,9 +20,25 @@ This guide is based on [Tutorial: Create a Kubernetes cluster with Azure Kuberne
 
 5. Run **export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config:./azurek8s** - merge newly created config for AKS with default kubeclt config
 
-6. Run **terraform destroy** - cleanup all AKS related resources
+6. Run **kubectl get nodes** - verify that the cluster is selected and you can access it
 
----
+7. Run **terraform destroy** - cleanup all AKS related resources
+
+## Install dapr via helm
+
+1. Make sure that helm version is >=3.0, run `helm version --short`
+
+2. Install Dapr
+
+    ```bash
+    helm repo add dapr https://daprio.azurecr.io/helm/v1/repo
+    helm repo update
+    helm install dapr dapr/dapr --namespace dapr-system
+    ```
+
+3. If you have Error: Kubernetes cluster unreachable, run `kubectl config view --raw >~/.kube/config`
+
+## Full Cleanup
 
 1. _Optional_ Run **az group delete -n \<resource group name from create-container.sh>** - remove storage account and terraform state
 

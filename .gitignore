@@ -2,3 +2,7 @@
 **/.terraform/*
 
 *.plan
+
+azurek8s
+
+helm-config.yaml
