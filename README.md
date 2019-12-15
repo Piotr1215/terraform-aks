@@ -30,9 +30,9 @@ This guide is based on [Tutorial: Create a Kubernetes cluster with Azure Kuberne
 
 2. Install Dapr
 
-Dapr is open an source event-driven, portable runtime for building microservices on cloud and edge, you can find our more on [Dapr website](https://dapr.io/).
+    Dapr is open an source event-driven, portable runtime for building microservices on cloud and edge, you can find our more on [Dapr website](https://dapr.io/).
 
-[Announcing Dapr](https://cloudblogs.microsoft.com/opensource/2019/10/16/announcing-dapr-open-source-project-build-microservice-applications/)
+    [Announcing Dapr](https://cloudblogs.microsoft.com/opensource/2019/10/16/announcing-dapr-open-source-project-build-microservice-applications/)
 
     ```bash
     helm repo add dapr https://daprio.azurecr.io/helm/v1/repo
