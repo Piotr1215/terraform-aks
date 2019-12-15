@@ -10,7 +10,7 @@ This guide is based on [Tutorial: Create a Kubernetes cluster with Azure Kuberne
 
 ## First time deployment
 
-1. Execute script **create-container.sh** - create storage account with container for storing terraform state and initiate terraform
+1. Execute script **`create-container.sh`** - create storage account with container for storing terraform state and initiate terraform
 
 2. Run **terraform plan -out out.plan** - prepare terraform deployment
 
