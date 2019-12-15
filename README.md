@@ -8,7 +8,7 @@ This guide is based on [Tutorial: Create a Kubernetes cluster with Azure Kuberne
 
 * cluster config is merged with kubeclt config file instead of replacing it
 
-## Deployment steps
+## First time deployment
 
 1. Execute script **create-container.sh** - create storage account with container for storing terraform state and initiate terraform
 
@@ -22,13 +22,17 @@ This guide is based on [Tutorial: Create a Kubernetes cluster with Azure Kuberne
 
 6. Run **kubectl get nodes** - verify that the cluster is selected and you can access it
 
-7. Run **terraform destroy** - cleanup all AKS related resources
+## Additional installations
 
-## Install dapr via helm
+### Install Dapr
 
 1. Make sure that helm version is >=3.0, run `helm version --short`
 
 2. Install Dapr
+
+Dapr is open an source event-driven, portable runtime for building microservices on cloud and edge, you can find our more on [Dapr website](https://dapr.io/).
+
+[Announcing Dapr](https://cloudblogs.microsoft.com/opensource/2019/10/16/announcing-dapr-open-source-project-build-microservice-applications/)
 
     ```bash
     helm repo add dapr https://daprio.azurecr.io/helm/v1/repo
@@ -38,8 +42,10 @@ This guide is based on [Tutorial: Create a Kubernetes cluster with Azure Kuberne
 
 3. If you have Error: Kubernetes cluster unreachable, run `kubectl config view --raw >~/.kube/config`
 
-## Full Cleanup
+## Cleanup
 
-1. _Optional_ Run **az group delete -n \<resource group name from create-container.sh>** - remove storage account and terraform state
+1. Run **terraform destroy** - cleanup all AKS related resources
 
-2. _Optional_ Run **rm -Rf .terraform** - this is needed to reset the state which is gone when removing the storage account and container
+2. _Optional_ Run **az group delete -n \<resource group name from create-container.sh>** - remove storage account and terraform state
+
+3. _Optional_ Run **rm -Rf .terraform** - this is needed to reset the state which is gone when removing the storage account and container
