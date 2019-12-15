@@ -12,19 +12,19 @@ This guide is based on [Tutorial: Create a Kubernetes cluster with Azure Kuberne
 
 1. Execute script **`create-container.sh`** - create storage account with container for storing terraform state and initiate terraform
 
-2. Run **terraform plan -out out.plan** - prepare terraform deployment
+2. Run **`terraform plan -out out.plan`** - prepare terraform deployment
 
-3. Run **terraform apply out.plan** - deploy AKS and store terraform state in the container created in step 1
+3. Run **`terraform apply out.plan`** - deploy AKS and store terraform state in the container created in step 1
 
-4. Run **echo "$(terraform output kube_config)" > ./azurek8s** - create azure config for kubectl
+4. Run **`echo "$(terraform output kube_config)" > ./azurek8s`** - create azure config for kubectl
 
-5. Run **export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config:./azurek8s** - merge newly created config for AKS with default kubeclt config
+5. Run **`export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config:./azurek8s`** - merge newly created config for AKS with default kubeclt config
 
-6. Run **kubectl get nodes** - verify that the cluster is selected and you can access it
+6. Run **`kubectl get nodes`** - verify that the cluster is selected and you can access it
 
 ## Additional installations
 
-### Install Dapr
+### Dapr
 
 1. Make sure that helm version is >=3.0, run `helm version --short`
 
@@ -44,8 +44,8 @@ This guide is based on [Tutorial: Create a Kubernetes cluster with Azure Kuberne
 
 ## Cleanup
 
-1. Run **terraform destroy** - cleanup all AKS related resources
+1. Run **`terraform destroy`** - cleanup all AKS related resources
 
-2. _Optional_ Run **az group delete -n \<resource group name from create-container.sh>** - remove storage account and terraform state
+2. _Optional_ Run **`az group delete -n \<resource group name from create-container.sh>`** - remove storage account and terraform state
 
-3. _Optional_ Run **rm -Rf .terraform** - this is needed to reset the state which is gone when removing the storage account and container
+3. _Optional_ Run **`rm -Rf .terraform`** - this is needed to reset the state which is gone when removing the storage account and container
