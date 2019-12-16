@@ -34,9 +34,19 @@ Deployment might take 10-15 minutes (with 2 node pools)
 
 2. Run `terraform apply out.plan` - spin up AKS cluster, storage account should still be there. Btw there are no additional charges for storage account up to 5GB
 
+## Monitor your cluster
+
+Observability is very important, Azure provides monitoring though Application Insights and Azure Log, but I like to use terminal based dashboard called K9S. Big shoutout to @derailed for creating it. You can find [K9S repo here and here](https://github.com/derailed/k9s) is how it looks on my WSL terminal.
+
+![K9S](https://github.com/Piotr1215/azure-architect-exams-resources/blob/master/k9s-dashboard.png?raw=true)
+
 ## Additional installations
 
 Folder [deployments](deployments) contains sample files to play around in the cluster
+
+### Play with official "Guestbook" example
+
+Kubernetes docs site has a very easy to follow sample called "Guestbook" which allows you to test a few k8s features and have a running sample in minutes. [Follow the tutorial here](https://kubernetes.io/docs/tutorials/stateless-application/guestbook/).
 
 ### Dapr
 
