@@ -28,14 +28,6 @@ resource "azurerm_log_analytics_solution" "test" {
     }
 }
 
-resource "azurerm_kubernetes_cluster_node_pool" "k8s" {
-  name                  = "ubuntu2"
-  kubernetes_cluster_id = azurerm_kubernetes_cluster.k8s.id
-  vm_size               = "Standard_DS2_v2"
-  node_count            = 3
-  os_type               = "Linux"
-}
-
 resource "azurerm_kubernetes_cluster" "k8s" {
     name                = var.cluster_name
     location            = azurerm_resource_group.k8s.location
@@ -53,7 +45,7 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     default_node_pool {
         name       = "default"
         node_count = 3
-        vm_size    = "Standard_D2_v2"
+        vm_size    = "Standard_B2S"
         type       = "VirtualMachineScaleSets"
     }
 
