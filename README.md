@@ -22,6 +22,12 @@ This guide is based on [Tutorial: Create a Kubernetes cluster with Azure Kuberne
 
 6. Run `kubectl get nodes` - verify that the cluster is selected and you can access it
 
+## Redeploy cluster after running only terraform destroy
+
+1. Run `terraform plan -out out.plan` - this refreshes the plan and prepares for deployment
+
+2. Run `terraform apply out.plan` - spin up AKS cluster, storage account should still be there. Btw there are no additional charges for storage account up to 5GB
+
 ## Additional installations
 
 ### Dapr
@@ -46,6 +52,6 @@ This guide is based on [Tutorial: Create a Kubernetes cluster with Azure Kuberne
 
 1. Run `terraform destroy` - cleanup all AKS related resources
 
-2. _Optional_ Run `az group delete -n \<resource group name from create-container.sh>` - remove storage account and terraform state
+2. __WARNING: Full Cleanup__ Run `az group delete -n \<resource group name from create-container.sh>` - remove storage account and terraform state
 
-3. _Optional_ Run `rm -Rf .terraform` - this is needed to reset the state which is gone when removing the storage account and container
+3. __WARNING: Full Cleanup__ Run `rm -Rf .terraform` - this is needed to reset the state which is gone when removing the storage account and container
