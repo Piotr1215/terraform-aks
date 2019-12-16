@@ -18,7 +18,11 @@ This guide is based on [Tutorial: Create a Kubernetes cluster with Azure Kuberne
 
 4. Run `echo "$(terraform output kube_config)" > ./azurek8s` - create azure config for kubectl
 
-5. Run `export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config:./azurek8s` - merge newly created config for AKS with default kubeclt config
+5. Copy AKS cluster configuration to your home direcrory and merge it with existing config file. This is only for the duration of shell session, we don't have to append the export command to bash or zsh config files.
+
+   * Copy `cp azurek8s ~/.kube/`
+
+   * Merge with existing config `export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config:$HOME/.kube//azurek8s` - this way, the cluster will be accesible from every directory
 
 6. Run `kubectl get nodes` - verify that the cluster is selected and you can access it
 
