@@ -22,7 +22,7 @@ This guide is based on [Tutorial: Create a Kubernetes cluster with Azure Kuberne
 
    * Copy `cp azurek8s ~/.kube/`
 
-   * Merge with existing config `export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config:$HOME/.kube//azurek8s` - this way, the cluster will be accesible from every directory
+   * Merge with existing config `export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config:$HOME/.kube/azurek8s` - this way, the cluster will be accesible from every directory
 
 6. Run `kubectl get nodes` - verify that the cluster is selected and you can access it
 
