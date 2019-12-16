@@ -34,6 +34,8 @@ This guide is based on [Tutorial: Create a Kubernetes cluster with Azure Kuberne
 
 ## Additional installations
 
+Folder [deployments](deployments) contains sample files to play around in the cluster
+
 ### Dapr
 
 1. Make sure that helm version is >=3.0, run `helm version --short`
