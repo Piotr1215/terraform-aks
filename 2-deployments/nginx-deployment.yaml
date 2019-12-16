@@ -5,7 +5,7 @@ metadata:
     run: nginx
   name: nginx-deploy
 spec:
-  replicas: 10
+  replicas: 2
   selector:
     matchLabels:
       run: nginx
