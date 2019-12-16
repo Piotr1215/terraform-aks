@@ -36,7 +36,7 @@ Deployment might take 10-15 minutes (with 2 node pools)
 
 ## Monitor your cluster
 
-Observability is very important, Azure provides monitoring though Application Insights and Azure Log, but I like to use terminal based dashboard called K9S. Big shoutout to [derailed](https://github.com/derailed) for creating it. You can find [K9S repo here and here](https://github.com/derailed/k9s) is how it looks on my WSL terminal.
+Observability is very important, Azure provides monitoring though Application Insights and Azure Log, but I like to use terminal based dashboard called K9S. Big shoutout to [derailed](https://github.com/derailed) for creating it. You can find [K9S repo here](https://github.com/derailed/k9s) and here is how it looks on my WSL terminal.
 
 ![K9S](https://github.com/Piotr1215/azure-architect-exams-resources/blob/master/k9s-dashboard.png?raw=true)
 
