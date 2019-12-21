@@ -18,15 +18,9 @@ Deployment might take 10-15 minutes (with 2 node pools)
 
 3. Run `terraform apply out.plan` - deploy AKS and store terraform state in the container created in step 1
 
-4. Run `echo "$(terraform output kube_config)" > ./azurek8s` - create azure config for kubectl
+4. Run `az aks get-credentials -g azure-k8stest -n k8stest` to merge newly created config with local kubectl config file and switch to the new cluster
 
-5. Copy AKS cluster configuration to your home direcrory and merge it with existing config file. This is only for the duration of shell session, we don't have to append the export command to bash or zsh config files.
-
-   * Copy `cp azurek8s ~/.kube/`
-
-   * Merge with existing config `export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config:$HOME/.kube/azurek8s` - this way, the cluster will be accesible from every directory
-
-6. Run `kubectl get nodes` - verify that the cluster is selected and you can access it
+5. Run `kubectl get nodes` - verify that the cluster is selected and you can access it
 
 ## Redeploy cluster after running only terraform destroy
 
@@ -40,7 +34,7 @@ Observability is very important, Azure provides monitoring though Application In
 
 ![K9S](https://github.com/Piotr1215/azure-architect-exams-resources/blob/master/k9s-dashboard.png?raw=true)
 
-## Additional installations
+## Additional installations and fun things to try out
 
 Folder [deployments](deployments) contains sample files to play around in the cluster
 
@@ -48,7 +42,16 @@ Folder [deployments](deployments) contains sample files to play around in the cl
 
 Kubernetes docs site has a very easy to follow sample called "Guestbook" which allows you to test a few k8s features and have a running sample in minutes. [Follow the tutorial here](https://kubernetes.io/docs/tutorials/stateless-application/guestbook/).
 
-### Dapr
+### Setup virtual nodes
+
+>Powered by the open source Virtual Kubelet technology, Azure Kubernetes Service (AKS) virtual node allows you to elastically provision additional pods inside Container Instances that start in seconds. With a few clicks in the Azure portal, turn on the virtual node feature and get the flexibility and portability of a container-focused experience in your AKS environment without needing to manage the additional compute resources. And since your Azure Container Instances containers can join the same virtual network as the rest of your cluster, you can build Kubernetes services that seamlessly span pods running on virtual machines (VMs) and Azure Container Instances.
+<cite>[Azure Kubernetes Service (AKS) virtual node is in preview](https://azure.microsoft.com/en-us/updates/aks-virtual-node-public-preview/)</cite>.
+
+[Youtube vid by  Sam Cogan about using virtual nodes in AKS](https://youtu.be/LhOCFJZp1H0)
+
+[Use Azure CLI to enable virtual nodes on already deployed cluster](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-cli)
+
+### See what's all the fuss with Dapr
 
 1. Make sure that helm version is >=3.0, run `helm version --short`
 
