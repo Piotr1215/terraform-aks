@@ -6,3 +6,4 @@
 - `sudo cat > file.txt`
 - delete pod and recreate it
 - is the file still there?
+- what happens when pod is scheduled on a different node?
