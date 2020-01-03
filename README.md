@@ -36,7 +36,7 @@ Observability is very important, Azure provides monitoring though Application In
 
 ## Additional installations and fun things to try out
 
-Folder [deployments](deployments) contains sample files to play around in the cluster
+Folder [deployments](./2-yaml-files) contains sample files to play around in the cluster
 
 ### Play with official "Guestbook" example
 
